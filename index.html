@@ -7,7 +7,83 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <aside id="sidebar">
 
+            <!-- student form -->
+            <form action="" id="studentForm">
+                <input type="hidden" name="" id="editIndex">
+                <input type="text" name="" id="name" placeholder="Full Name">
+                <input type="email" name="" id="email" placeholder="Email Address">
+                <input type="text" name="" id="age" placeholder="Age">
+                <label for="">Course</label>
+                <select name="" id="course">
+                    <option value="">Select Course</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="AI">AI</option>
+                </select>
+                <label for="">Gender</label>
+                <br>
+                <input type="radio" name="gender" id="" value="Male" class="inline">
+                <label for="">Male</label>
+                <input type="radio" name="gender" id="" value="Female" class="inline">
+                <label for="">Female</label>
+                <br>
+                <label for="">Skills</label><br>
+                <input type="checkbox" name="" id="" class="skills inline" checked value="HTML">HTML
+                <input type="checkbox" name="" id="" class="skills inline" value="CSS">CSS
+                <input type="checkbox" name="" id="" class="skills inline" value="JS">JS
+                <br><br>
+                <label for="">Admission Date</label>
+                <input type="date" name="" id="date" value="2026-03-25">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </aside>
+        <main class="main-content">
+            <header id="main-header">
+                <h2>Student Management</h2>
+                <div class="filters">
+                    <input type="text" id="search" name="" id="" placeholder="Search by Name of Email">
+                    <select name="" id="filterCourses">
+                        <option value="">All Courses</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="AI">AI</option>
+                    </select>
+                    <select name="" id="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- student table -->
+             <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Course</th>
+                            <th>Gender</th>
+                            <th>Skills</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable">
+
+                    </tbody>
+                </table>
+             </div>
+
+        </main>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>

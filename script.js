@@ -78,4 +78,65 @@ $(document).ready(function(){
         }
     })
 
-})
+    // edit row
+    $(document).on('click', '.edit', function(){
+        let row = $(this).closest('tr');
+        $('#name').val(row.children().eq(0).text())
+        $('#email').val(row.children().eq(1).text())
+        $('#age').val(row.children().eq(2).text())
+        $('#course').val(row.children().eq(3).text())
+        $('#date').val(row.children().eq(6).text())
+        // gender set
+        let gender = row.children().eq(4).text();
+        $("input[name='gender'][value='" + gender + "']").prop('checked', true);
+        // skills set
+        let skills = row.children().eq(5).text().split(", ");
+        $(".skills").prop("checked", false);
+        skills.forEach(skill => {
+            $(".skills[value='" +skill+"']").prop('checked', true)
+        });
+    
+        row.fadeOut(function(){
+            $(this).remove();
+        })
+    });
+
+    // searching
+    $("#search").keyup(function(){
+        let value = $(this).val().toLowerCase();
+
+        $("#studentTable tr").filter(function(){
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        })
+    })
+
+    // course filter
+    $('#filterCourse').change(function(){
+        let value = $(this).val();
+
+        $('#studentTable tr').each(function(){
+            let course = $(this).attr("data-course");
+            if(value === "" || value === course){
+                $(this).fadeIn();
+            }
+            else{
+                $(this).fadeOut();
+            }
+        });
+    });
+
+    // status filter
+    $("#filterStatus").change(function(){
+        let value = $(this).val();
+
+        $("#studentTable tr").each(function(){
+            let status = $(this).attr("data-status");
+            if(value === "" || value === status){
+                $(this).fadeIn();
+            }
+            else{
+                $(this).fadeOut();
+            }
+        });
+    });
+});
